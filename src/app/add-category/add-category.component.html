@@ -1,0 +1,8 @@
+<h2>Category Ekleme</h2>
+<form (ngSubmit)="onSubmit()" [formGroup]="addCategoryForm">
+    <div>
+        <label for="categoryName">Category Name</label>
+        <input formControlName="categoryName" type="text" id="categoryName">
+    </div>
+    <button class="button" type="submit">Save</button>
+</form>

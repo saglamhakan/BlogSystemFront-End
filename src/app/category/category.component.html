@@ -1,0 +1,17 @@
+<h2>Category Listeleme</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Category ID</th>
+            <th>Category Name</th>
+            <th>Creation Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let category of categoryList">
+            <td>{{ category.categoryId }}</td>
+            <td>{{ category.categoryName }}</td>
+            <td>{{ category.creationDate }}</td>
+        </tr>
+    </tbody>
+</table>

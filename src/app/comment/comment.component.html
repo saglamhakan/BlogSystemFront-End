@@ -1,0 +1,19 @@
+<h2>Comment Listeleme</h2>
+<table>
+    <thead>
+        <tr>
+            <th>User ID</th>
+            <th>Post ID</th>
+            <th>Comments</th>
+            <th>Confirmed</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let comment of commentList">
+            <td>{{ comment.userId }}</td>
+            <td>{{ comment.postId }}</td>
+            <td>{{ comment.comment }}</td>
+            <td>{{ comment.isConfirmed }}</td>
+        </tr>
+    </tbody>
+</table>
