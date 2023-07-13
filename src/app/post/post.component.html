@@ -9,6 +9,8 @@
             <th>View Count</th>
             <th>Creation Date</th>
             <th>Published</th>
+            <th>Update</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>
@@ -20,6 +22,9 @@
             <td>{{ post.viewCount }}</td>
             <td>{{ post.creationDate }}</td>
             <td>{{ post.isPublished }}</td>
+            <td><a [routerLink]="['/update-post', post.postId]">Update</a></td>
+            <td><button (click)="deleteItem(post.postId)" >Delete</button></td>
+
         </tr>
     </tbody>
 </table>

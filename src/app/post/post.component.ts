@@ -23,5 +23,12 @@ export class PostComponent {
       console.log(response) })
   
   }
+  
+  deleteItem(postId:number) {
+    this.postService.deletePost(postId).subscribe(data=>{
+      let response:any = data
+      
+      console.log(response) })
+  }
 
 }

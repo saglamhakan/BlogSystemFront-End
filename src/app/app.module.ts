@@ -15,7 +15,7 @@ import { CommentComponent } from './comment/comment.component';
 import { AddCommentComponent } from './add-comment/add-comment.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './home-page/home-page.component';
-import { UpdateUserComponent } from './update-user/update-user.component';
+import { UpdateUserComponent } from './update-user.component/update-user.component';
 import { UpdateCategoryComponent } from './update-category/update-category.component';
 import { UpdatePostComponent } from './update-post/update-post.component';
 import { UpdateCommentComponent } from './update-comment/update-comment.component';
@@ -24,6 +24,8 @@ const routes: Routes = [
   { path: '', component: HomePageComponent},
   { path: 'add-user', component: AddUserComponent },
   { path: 'list-user', component: UserComponent },
+  { path: 'list-post', component: PostComponent },
+  { path: 'update-post/:postId', component: UpdatePostComponent },
 
 ];
 

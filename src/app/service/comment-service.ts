@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { AddCommentRequest } from '../model/AddCommentRequest';
+import { UpdateCommentRequest } from '../model/UpdateCommentRequest';
 @Injectable({
   providedIn: 'root'
 })
@@ -18,5 +19,8 @@ export class CommentServiceService {
   }
   addComment(comment:AddCommentRequest){
     return this.http.post<any>(this.apiUrl + "/add", comment, {})
+  }
+  updateComment(comment:UpdateCommentRequest){
+    return this.http.put<any> (this.apiUrl + "/update", comment, {})
   }
   } 

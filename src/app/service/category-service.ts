@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { AddCategoryRequest } from '../model/AddCategoryRequest';
+import { UpdateCategoryRequest } from '../model/UpdateCategoryRequest';
 @Injectable({
   providedIn: 'root'
 })
@@ -18,5 +19,8 @@ export class CategoryServiceService {
   }
   addCategory(category:AddCategoryRequest){
     return this.http.post<any>(this.apiUrl + "/add", category,{})
+  }
+  updateCategory(category:UpdateCategoryRequest){
+    return this.http.put<any> (this.apiUrl + "/update", category, {})
   }
 }
