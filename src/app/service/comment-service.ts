@@ -23,4 +23,8 @@ export class CommentServiceService {
   updateComment(comment:UpdateCommentRequest){
     return this.http.put<any> (this.apiUrl + "/update", comment, {})
   }
+  deleteComment(commentId:number){
+    const url = `${this.apiUrl}/delete/${commentId}`;
+    return this.http.delete<any> (url)
+  }
   } 

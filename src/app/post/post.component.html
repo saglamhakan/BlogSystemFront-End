@@ -1,30 +1,35 @@
-<h2>Post Listeleme</h2>
-<table>
-    <thead>
+<div class="post-list-container">
+    <h2>Post Listeleme</h2>
+  
+    <table class="post-list-table">
+      <thead>
         <tr>
-            <th>Post ID</th>
-            <th>User ID</th>
-            <th>Title</th>
-            <th>Content</th>
-            <th>View Count</th>
-            <th>Creation Date</th>
-            <th>Published</th>
-            <th>Update</th>
-            <th>Delete</th>
+          <th>Post ID</th>
+          <th>User ID</th>
+          <th>Title</th>
+          <th>Content</th>
+          <th>View Count</th>
+          <th>Creation Date</th>
+          <th>Published</th>
+          <th>Update</th>
+          <th>Delete</th>
         </tr>
-    </thead>
-    <tbody>
+      </thead>
+      <tbody>
         <tr *ngFor="let post of postList">
-            <td>{{ post.postId }}</td>
-            <td>{{ post.userId }}</td>
-            <td>{{ post.title }}</td>
-            <td>{{ post.content }}</td>
-            <td>{{ post.viewCount }}</td>
-            <td>{{ post.creationDate }}</td>
-            <td>{{ post.isPublished }}</td>
-            <td><a [routerLink]="['/update-post', post.postId]">Update</a></td>
-            <td><button (click)="deleteItem(post.postId)" >Delete</button></td>
-
+          <td>{{ post.postId }}</td>
+          <td>{{ post.userId }}</td>
+          <td>{{ post.title }}</td>
+          <td>{{ post.content }}</td>
+          <td>{{ post.viewCount }}</td>
+          <td>{{ post.creationDate }}</td>
+          <td>{{ post.isPublished }}</td>
+          <td><a [routerLink]="['/update-post', post.postId]">Update</a></td>
+          <td><button (click)="deleteItem(post.postId)">Delete</button></td>
         </tr>
-    </tbody>
-</table>
+      </tbody>
+    </table>
+  
+    <a routerLink="/add-post" routerLinkActive="active" ariaCurrentWhenActive="page" class="add-post-link">Add Post</a>
+  </div>
+  

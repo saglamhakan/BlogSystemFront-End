@@ -23,4 +23,8 @@ export class CategoryServiceService {
   updateCategory(category:UpdateCategoryRequest){
     return this.http.put<any> (this.apiUrl + "/update", category, {})
   }
+  deleteCategory(categoryId:number){
+    const url = `${this.apiUrl}/delete/${categoryId}`;
+    return this.http.delete<any> (url)
+  }
 }

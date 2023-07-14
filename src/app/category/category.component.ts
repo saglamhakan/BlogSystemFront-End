@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CategoryServiceService } from '../service/category-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-category',
@@ -9,7 +10,7 @@ import { CategoryServiceService } from '../service/category-service';
 export class CategoryComponent {
   categoryList: any[]=[]
   constructor(
-    private categoryService: CategoryServiceService
+    private categoryService: CategoryServiceService, private router: Router
   ){
 
   }
@@ -22,5 +23,12 @@ export class CategoryComponent {
       this.categoryList=response.getAllCategoryDto
       console.log(response)
     })
+  }
+  deleteItem(categoryId: number) {
+    this.categoryService.deleteCategory(categoryId).subscribe(data => {
+      let response: any = data;
+      console.log(response);
+    });
+
   }
 }

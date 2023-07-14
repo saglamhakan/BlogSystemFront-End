@@ -19,13 +19,23 @@ import { UpdateUserComponent } from './update-user.component/update-user.compone
 import { UpdateCategoryComponent } from './update-category/update-category.component';
 import { UpdatePostComponent } from './update-post/update-post.component';
 import { UpdateCommentComponent } from './update-comment/update-comment.component';
+import { PostDetailComponent } from './post-detail/post-detail.component';
+import { FilterComponent } from './filter-component/filter-component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent},
   { path: 'add-user', component: AddUserComponent },
+  { path: 'add-post', component: AddUserComponent },
+  { path: 'add-category', component: AddCategoryComponent },
+  { path: 'add-comment', component: AddCommentComponent },
   { path: 'list-user', component: UserComponent },
   { path: 'list-post', component: PostComponent },
+  { path: 'list-category', component: CategoryComponent },
+  { path: 'list-comment', component: CommentComponent },
   { path: 'update-post/:postId', component: UpdatePostComponent },
+  { path: 'update-user/:userId', component:UpdateUserComponent},
+  { path: 'update-category/:categoryId', component:UpdateCategoryComponent},
+  { path: 'update-comment/:commentId', component: UpdateCommentComponent },
 
 ];
 
@@ -45,7 +55,9 @@ const routes: Routes = [
     UpdateUserComponent,
     UpdateCategoryComponent,
     UpdatePostComponent,
-    UpdateCommentComponent
+    UpdateCommentComponent,
+    PostDetailComponent,
+    FilterComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

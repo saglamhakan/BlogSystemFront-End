@@ -1,5 +1,6 @@
 import { Component} from '@angular/core';
 import { CommentServiceService } from '../service/comment-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-comment',
@@ -9,7 +10,7 @@ import { CommentServiceService } from '../service/comment-service';
 export class CommentComponent {
   commentList: any[]=[]
   constructor(
-    private commentService: CommentServiceService
+    private commentService: CommentServiceService, private router: Router
   ){
 
   }
@@ -24,5 +25,13 @@ export class CommentComponent {
       console.log(response)
     
     })
+  }
+  deleteItem(commentId: number) {
+    this.commentService.deleteComment(commentId).subscribe(data => {
+      let response: any = data;
+      console.log(response);
+      // Gönderiyi silme işleminden sonra gönderi listesini yeniden yüklemek için sayfayı yeniden yönlendirin
+      this.router.navigateByUrl('/list-comment');
+    });
   }
 }

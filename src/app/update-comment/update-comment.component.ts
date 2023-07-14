@@ -26,9 +26,9 @@ export class UpdateCommentComponent implements OnInit{
 }
 onSubmit():any {
 let updateCommentRequest:UpdateCommentRequest = new UpdateCommentRequest()
+updateCommentRequest.commentId=this.updateCommentForm.value.commentId
 updateCommentRequest.postId = this.updateCommentForm.value.postId
 updateCommentRequest.userId = this.updateCommentForm.value.userId
-updateCommentRequest.commentId=this.updateCommentForm.value.commentId
 updateCommentRequest.comment=this.updateCommentForm.value.comment
 updateCommentRequest.isConfirmed=JSON.parse(this.updateCommentForm.value.isConfirmed)
 console.log(updateCommentRequest)

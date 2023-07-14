@@ -2,6 +2,7 @@
 <table>
     <thead>
         <tr>
+            <th>Comment ID</th>
             <th>User ID</th>
             <th>Post ID</th>
             <th>Comments</th>
@@ -10,10 +11,16 @@
     </thead>
     <tbody>
         <tr *ngFor="let comment of commentList">
+            <td>{{ comment.commentId}}</td>
             <td>{{ comment.userId }}</td>
             <td>{{ comment.postId }}</td>
             <td>{{ comment.comment }}</td>
             <td>{{ comment.isConfirmed }}</td>
+            <td><a [routerLink]="['/update-comment', comment.commentId]">Update</a></td>
+            <td><button (click)="deleteItem(comment.commentId)" >Delete</button></td>
         </tr>
     </tbody>
 </table>
+<a routerLink="/add-comment" routerLinkActive="active" ariaCurrentWhenActive="page">
+    Add Comment
+</a>

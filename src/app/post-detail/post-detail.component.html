@@ -1,0 +1,24 @@
+<h2>Post Detail</h2>
+<div *ngIf="post">
+  <h3>{{ post.title }}</h3>
+  <p>Content: {{ post.content }}</p>
+  <p>View Count: {{ post.viewCount }}</p>
+  <p>Creation Date: {{ post.creationDate }}</p>
+  <p>Published: {{ post.isPublished }}</p>
+  <h4>User Information</h4>
+  <p>User ID: {{ user.userId }}</p>
+  <p>User Name: {{ user.userName }}</p>
+  <p>Email: {{ user.email }}</p>
+  <h4>Category Information</h4>
+  <p>Category ID: {{ category.categoryId }}</p>
+  <p>Category Name: {{ category.categoryName }}</p>
+  <h4>Comments</h4>
+  <ul>
+    <li *ngFor="let comment of comments">
+      <p>Comment ID: {{ comment.commentId }}</p>
+      <p>User ID: {{ comment.userId }}</p>
+      <p>Comment: {{ comment.comment }}</p>
+      <p>Confirmed: {{ comment.isConfirmed }}</p>
+    </li>
+  </ul>
+</div>

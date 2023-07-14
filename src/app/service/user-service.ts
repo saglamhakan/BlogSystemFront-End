@@ -21,8 +21,11 @@ export class UserServiceService {
     return this.http.post<any> (this.apiUrl + "/add", user,{})
   } 
   updateUser(user:UpdateUserRequest){
-   
     return this.http.put<any>(this.apiUrl + "/update",user, {})
   } 
+  deleteUser(userId:number){
+    const url = `${this.apiUrl}/delete/${userId}`;
+    return this.http.delete<any> (url)
+  }
 }
 

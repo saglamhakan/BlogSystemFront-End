@@ -12,6 +12,12 @@
             <td>{{ category.categoryId }}</td>
             <td>{{ category.categoryName }}</td>
             <td>{{ category.creationDate }}</td>
+            <td><a [routerLink]="['/update-category', category.categoryId]">Update</a></td>
+            <td><button (click)="deleteItem(category.categoryId)" >Delete</button></td>
+            <td><a [routerLink]="['/category-detail', category.categoryId]">{{ category.title }}</a></td>
         </tr>
     </tbody>
 </table>
+<a routerLink="/add-category" routerLinkActive="active" ariaCurrentWhenActive="page">
+    Add Category
+</a>
