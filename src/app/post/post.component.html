@@ -1,7 +1,14 @@
-<div class="post-list-container">
-    <h2>Post Listeleme</h2>
+<div>
+    <table>
+      <tbody>
+        <tr>
+          <td><a class="post-detail-link" [routerLink]="['/post-detail', postList[0].postId]">Post Detail</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
   
-    <table class="post-list-table">
+   <!-- <table>
       <thead>
         <tr>
           <th>Post ID</th>
@@ -24,12 +31,12 @@
           <td>{{ post.viewCount }}</td>
           <td>{{ post.creationDate }}</td>
           <td>{{ post.isPublished }}</td>
-          <td><a [routerLink]="['/update-post', post.postId]">Update</a></td>
-          <td><button (click)="deleteItem(post.postId)">Delete</button></td>
+          <td><a class="update-link" [routerLink]="['/update-post', post.postId]">Update</a></td>
+          <td><button class="delete-button" (click)="deleteItem(post.postId)">Delete</button></td>
         </tr>
       </tbody>
     </table>
-  
-    <a routerLink="/add-post" routerLinkActive="active" ariaCurrentWhenActive="page" class="add-post-link">Add Post</a>
+    <div class="add-post-button-container">
+    <a class="add-post-button" routerLink="/add-post" routerLinkActive="active" ariaCurrentWhenActive="page" >Add Post</a>
   </div>
-  
+-->

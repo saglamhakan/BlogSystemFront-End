@@ -1,4 +1,4 @@
-<h2>Comment Listeleme</h2>
+<div class="add-comment-container">
 <table>
     <thead>
         <tr>
@@ -7,6 +7,8 @@
             <th>Post ID</th>
             <th>Comments</th>
             <th>Confirmed</th>
+            <th>Update</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>
@@ -16,11 +18,18 @@
             <td>{{ comment.postId }}</td>
             <td>{{ comment.comment }}</td>
             <td>{{ comment.isConfirmed }}</td>
-            <td><a [routerLink]="['/update-comment', comment.commentId]">Update</a></td>
-            <td><button (click)="deleteItem(comment.commentId)" >Delete</button></td>
+            <td><a class="update-link" [routerLink]="['/update-comment', comment.commentId]">Update</a></td>
+            <td><button class="delete-button" (click)="deleteItem(comment.commentId)">Delete</button></td>
         </tr>
     </tbody>
 </table>
-<a routerLink="/add-comment" routerLinkActive="active" ariaCurrentWhenActive="page">
+</div>
+
+<div class="add-comment-button-container">
+<a class="add-comment-button" routerLink="/add-comment" routerLinkActive="active" ariaCurrentWhenActive="page">
     Add Comment
 </a>
+
+
+
+  

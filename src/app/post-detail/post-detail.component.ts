@@ -1,41 +1,56 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {Router, ActivatedRoute, Params } from '@angular/router';
 import { PostServiceService } from '../service/post-service';
-
+import { FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-post-detail',
   templateUrl: './post-detail.component.html',
   styleUrls: ['./post-detail.component.css']
 })
 export class PostDetailComponent implements OnInit {
-  postId: number=0;
-  post: any;
-  user: any;
-  category: any;
-  comments: any[] = []; // comments değişkenini dizi olarak tanımla
+  postList: any[] = [];
+  userId: number = 0;
+  postId: number = 0;
+  categoryId: number = 0;
+  addPostForm!: FormGroup;
+
 
   constructor(
-    private route: ActivatedRoute,
-    private postService: PostServiceService
-  ) { }
+    private postService: PostServiceService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
-  ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      this.postId = Number(params.get('postId'));
-      this.loadPostDetails();
+  ngOnInit() {
+    this.route.queryParams.subscribe((params: Params) => {
+      this.userId = +params['userId'] || 0;
+      this.postId = +params['postId'] || 0;
+      this.categoryId = +params['categoryId']|| 0;
+      this.loadPosts();
     });
   }
-  
-  loadPostDetails() {
-    this.postService.getById(this.postId).subscribe(data => {
+
+  loadPosts() {
+    this.postService.getAllPosts(this.userId, this.postId, this.categoryId).subscribe(data => {
       let response: any = data;
-      this.post = response.post;
-      this.user = response.user;
-      this.category = response.category;
-      this.comments = response.comments;
-    }, error => {
-      console.log(error); // Hata durumunda hatayı konsola yazdırabilirsiniz
+      this.postList = response.getAllPostDto;
     });
   }
-  
+
+  deleteItem(postId: number) {
+    this.postService.deletePost(postId).subscribe(data => {
+      let response: any = data;
+      console.log(response);
+      this.loadPosts();
+    });
+  }
+
+  goToPostDetails(postId: number) {
+    this.router.navigate(['/post-detail', postId]);
+  }
+  onSubmit() {
+    if (this.addPostForm.invalid) {
+      return;
+    }
+  }
 }

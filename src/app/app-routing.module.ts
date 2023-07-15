@@ -30,6 +30,8 @@ const routes: Routes = [
   { path: 'update-category/:categoryId', component:UpdateCategoryComponent},
   { path: 'update-comment/:commentId', component: UpdateCommentComponent },
   { path: 'post-detail/:postId', component: PostDetailComponent },
+
+ 
 ];
 
 @NgModule({

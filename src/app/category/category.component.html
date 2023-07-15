@@ -1,23 +1,26 @@
-<h2>Category Listeleme</h2>
+
 <table>
-    <thead>
-        <tr>
-            <th>Category ID</th>
-            <th>Category Name</th>
-            <th>Creation Date</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let category of categoryList">
-            <td>{{ category.categoryId }}</td>
-            <td>{{ category.categoryName }}</td>
-            <td>{{ category.creationDate }}</td>
-            <td><a [routerLink]="['/update-category', category.categoryId]">Update</a></td>
-            <td><button (click)="deleteItem(category.categoryId)" >Delete</button></td>
-            <td><a [routerLink]="['/category-detail', category.categoryId]">{{ category.title }}</a></td>
-        </tr>
-    </tbody>
+  <thead>
+    <tr>
+      <th>Category ID</th>
+      <th>Category Name</th>
+      <th>Creation Date</th>
+      <th>Update</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let category of categoryList">
+      <td>{{ category.categoryId }}</td>
+      <td>{{ category.categoryName }}</td>
+      <td>{{ category.creationDate }}</td>
+      <td><a class="update-link" [routerLink]="['/update-category', category.categoryId]">Update</a></td>
+      <td><button class="delete-button" (click)="deleteItem(category.categoryId)">Delete</button></td>
+      <td><a [routerLink]="['/category-detail', category.categoryId]">{{ category.title }}</a></td>
+    </tr>
+  </tbody>
 </table>
-<a routerLink="/add-category" routerLinkActive="active" ariaCurrentWhenActive="page">
-    Add Category
+
+<a class="add-category-button" routerLink="/add-category" routerLinkActive="active" ariaCurrentWhenActive="page">
+  Add Category
 </a>
