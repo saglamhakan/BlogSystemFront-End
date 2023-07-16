@@ -196,4 +196,134 @@ body {
     background-color: #287d90;
     border-radius: 0;
   }
+  .post-detail-link {
+    display: inline-block;
+    padding: 10px;
+    background-color: #f2f2f2;
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .post-detail-link:hover {
+    background-color: #ddd;
+  }
+  .post-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .post-table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .post-table .update-link,
+  .post-table .delete-button {
+    display: inline-block;
+    padding: 5px 10px;
+    border: none;
+    background-color: #3498db;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 20px;
+  }
+  
+  .post-table .delete-button {
+    background-color: #e74c3c;
+  }
+  
+  .filter-container {
+    background-color: #f2f2f2;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .filter-container label {
+    margin-right: 10px;
+  }
+  
+  .filter-container input[type="number"] {
+    padding: 5px;
+  }
+  
+  .filter-buttons button {
+    padding: 5px 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 20px;
+  }
+  
+  .filter-buttons .clear-button {
+    background-color: #e74c3c;
+  }
+  
+  .filter-buttons button:hover {
+    background-color: #2980b9;
+  }
+  .pagination-container {
+    display: flex;
+    justify-content: right;
+    margin-top: 20px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+  }
+  
+  th, td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  td {
+    background-color: #fff;
+  }
+  
+  tbody tr:nth-child(even) td {
+    background-color: #f8f8f8;
+  }
+  .mat-paginator li a {
+    display: inline-block;
+    padding: 6px 12px;
+    text-decoration: none;
+    background-color: #03a9f4;
+    color: #fff;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .mat-paginator li a:hover {
+    background-color: #039be5;
+  }
+  
+  .mat-paginator li.mat-paginator-page span {
+    background-color: #03a9f4;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 4px;
+  }
+  
+  .mat-paginator li.mat-paginator-page span.mat-select-placeholder {
+    font-style: italic;
+    color: initial;
+  }
+  .filter-button {
+    margin-left: 10px;
+  }
   

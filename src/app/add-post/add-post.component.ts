@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { PostServiceService } from '../service/post-service';
 import { AddPostRequest } from '../model/AddPostRequest';
 
+
 @Component({
   selector: 'app-add-post',
   templateUrl: './add-post.component.html',
@@ -10,6 +11,7 @@ import { AddPostRequest } from '../model/AddPostRequest';
 })
 export class AddPostComponent implements OnInit{
   addPostForm!: FormGroup
+ 
 
   constructor(private formBuilder: FormBuilder, private postService: PostServiceService ){
   }
@@ -36,4 +38,5 @@ export class AddPostComponent implements OnInit{
       let response:any=data
     });
   }
+  
 }

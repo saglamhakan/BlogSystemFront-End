@@ -3,6 +3,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { PostServiceService } from '../service/post-service';
 import { FormGroup } from '@angular/forms';
 
+
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
@@ -14,12 +15,15 @@ export class PostComponent implements OnInit {
   postId: number = 0;
   categoryId: number = 0;
   addPostForm!: FormGroup;
+  filteredPostList: any[] = []; // filteredPostList özelliğini tanımla
+ 
+  
 
 
   constructor(
     private postService: PostServiceService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
   ) {}
 
   ngOnInit() {
@@ -27,7 +31,15 @@ export class PostComponent implements OnInit {
       this.userId = +params['userId'] || 0;
       this.postId = +params['postId'] || 0;
       this.categoryId = +params['categoryId']|| 0;
+      this.applyFilters();
+
       this.loadPosts();
+
+      if (this.userId && this.postId && this.categoryId) {
+        this.filteredPostList = this.postList.filter(post => post.userId === this.userId && post.postId === this.postId && post.categoryId === this.categoryId);
+      } else {
+        this.filteredPostList = []; // Filtrelenmiş bir sonuç yoksa, boş bir dizi atayabilirsiniz.
+      }
     });
   }
 
@@ -35,6 +47,8 @@ export class PostComponent implements OnInit {
     this.postService.getAllPosts(this.userId, this.postId, this.categoryId).subscribe(data => {
       let response: any = data;
       this.postList = response.getAllPostDto;
+      this.applyFilters(); // Postları filtreleme işlemini çağır
+
     });
   }
 
@@ -54,4 +68,21 @@ export class PostComponent implements OnInit {
       return;
     }
   }
+  applyFilters() {
+    // Filtrelenmiş sonuçları al
+    this.filteredPostList = this.postList.filter(post =>
+      post.userId === this.userId && post.postId === this.postId && post.categoryId === this.categoryId
+    );
+   
+  }
+  clearFilters() {
+    this.userId = 0;
+    this.postId = 0;
+    this.categoryId = 0;
+    this.applyFilters();
+  }
+  
+  
+  
+  
 }

@@ -15,7 +15,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let post of postList">
+      <tr *ngFor="let post of postList.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage)">
         <td>{{ post.postId }}</td>
         <td>{{ post.userId }}</td>
         <td>{{ post.title }}</td>
@@ -31,3 +31,12 @@
   <div class="add-post-button-container">
   <a class="add-post-button" routerLink="/add-post" routerLinkActive="active" ariaCurrentWhenActive="page" >Add Post</a>
 </div>
+
+<mat-paginator [length]="postList.length"
+                 [pageSize]="itemsPerPage"
+                 [pageIndex]="currentPage"
+                 [pageSizeOptions]="[3, 5, 10, 25, 50]"
+                 (page)="onPageChange($event)">
+  </mat-paginator>
+
+

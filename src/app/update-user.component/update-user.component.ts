@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { UserServiceService } from '../service/user-service';
 import { UpdateUserRequest } from '../model/UpdateUserRequest';
+
+
 @Component({
   selector: 'app-update-user',
   templateUrl: './update-user.component.html',
@@ -9,6 +11,7 @@ import { UpdateUserRequest } from '../model/UpdateUserRequest';
 })
 export class UpdateUserComponent implements OnInit{
   updateUserForm!: FormGroup
+  
 
   constructor(private formBuilder: FormBuilder, private userService: UserServiceService ){
     
@@ -32,4 +35,5 @@ onSubmit():any {
     let response:any=data
   });
 }
+
 }

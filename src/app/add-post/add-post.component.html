@@ -1,13 +1,14 @@
 <div class="add-post-container">
 
-<h2>Post Ekleme</h2>
 <form (ngSubmit)="onSubmit()" [formGroup]="addPostForm">
     <div>
         <label for="categoryId">Category ID</label>
+        <br>
         <input formControlName="categoryId" type="number" id="categoryId">
     </div>
     <div>
         <label for="userId">User ID</label>
+        <br>
         <input formControlName="userId" type="number" id="userId">
     </div>
     <div>

@@ -10,7 +10,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let category of categoryList">
+    <tr *ngFor="let category of categoryList.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage)">
       <td>{{ category.categoryId }}</td>
       <td>{{ category.categoryName }}</td>
       <td>{{ category.creationDate }}</td>
@@ -24,3 +24,9 @@
 <a class="add-category-button" routerLink="/add-category" routerLinkActive="active" ariaCurrentWhenActive="page">
   Add Category
 </a>
+<mat-paginator [length]="categoryList.length"
+[pageSize]="itemsPerPage"
+[pageIndex]="currentPage"
+[pageSizeOptions]="[3,5, 10, 25, 50]"
+(page)="onPageChange($event)">
+</mat-paginator>

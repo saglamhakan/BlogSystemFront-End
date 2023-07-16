@@ -1,14 +1,15 @@
-<h2>Comment Ekleme</h2>
 
 <form (ngSubmit)="onSubmit()" [formGroup]="addCommentForm">
     
     <div>
 
     </div>
-    <label for="postId">Post ID</label>
+    <label for="postId">Post ID:</label>
+    <br>
         <input formControlName="postId" type="number" id="postId">
     <div>
-        <label for="userId">User ID</label>
+        <label for="userId">User ID:</label>
+        <br>
         <input formControlName="userId" type="number" id="userId">
     </div>
     <div>

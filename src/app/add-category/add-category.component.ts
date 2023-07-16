@@ -11,6 +11,8 @@ import { AddCategoryRequest } from '../model/AddCategoryRequest';
 })
 export class AddCategoryComponent {
   addCategoryForm!: FormGroup
+  
+  
 
   constructor(private formBuilder: FormBuilder, private categoryService: CategoryServiceService ){
     
@@ -28,4 +30,5 @@ export class AddCategoryComponent {
       let response:any=data
   })
 }
+
 }

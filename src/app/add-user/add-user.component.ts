@@ -4,6 +4,8 @@ import { UserServiceService } from '../service/user-service';
 import { AddUserRequest } from '../model/AddUserRequest';
 
 
+
+
 @Component({
   selector: 'app-add-user',
   templateUrl: './add-user.component.html',
@@ -11,6 +13,7 @@ import { AddUserRequest } from '../model/AddUserRequest';
 })
 export class AddUserComponent implements OnInit{
   addUserForm!: FormGroup
+ 
 
   constructor(private formBuilder: FormBuilder, private userService: UserServiceService ){
     
@@ -32,5 +35,5 @@ export class AddUserComponent implements OnInit{
       let response:any=data
     });
   }
-
+  
 }

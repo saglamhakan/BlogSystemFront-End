@@ -5,6 +5,7 @@ import { UpdatePostRequest } from '../model/UpdatePostRequest';
 import { ActivatedRoute } from '@angular/router';
 import { GetPostByIdModel } from '../model/GetPostByIdModel';
 
+
 @Component({
   selector: 'app-update-post',
   templateUrl: './update-post.component.html',
@@ -14,6 +15,7 @@ export class UpdatePostComponent {
   updatePostForm!: FormGroup;
   postIdFromRouting!: string | null;
   getPostByIdValue!: GetPostByIdModel;
+ 
 
   constructor(private formBuilder: FormBuilder, private postService: PostServiceService, private route: ActivatedRoute ){
     this.postIdFromRouting = this.route.snapshot.paramMap.get('postId')
@@ -68,4 +70,5 @@ getPostById(postId: number): GetPostByIdModel {
 
   return response;
 }
+
 }

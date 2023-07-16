@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { CommentServiceService } from '../service/comment-service';
 import { AddCommentRequest } from '../model/AddCommentRequest';
+
 @Component({
   selector: 'app-add-comment',
   templateUrl: './add-comment.component.html',
@@ -9,6 +10,7 @@ import { AddCommentRequest } from '../model/AddCommentRequest';
 })
 export class AddCommentComponent {
   addCommentForm!: FormGroup
+  
 
   constructor(private formBuilder: FormBuilder, private commentService: CommentServiceService ){
   }
@@ -31,5 +33,5 @@ export class AddCommentComponent {
       let response:any=data
     });
   }
-
+  
 }

@@ -21,6 +21,11 @@ import { UpdatePostComponent } from './update-post/update-post.component';
 import { UpdateCommentComponent } from './update-comment/update-comment.component';
 import { PostDetailComponent } from './post-detail/post-detail.component';
 import { FilterComponent } from './filter-component/filter-component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FilterCommentComponent } from './filter-comment/filter-comment.component';
+
+
 
 const routes: Routes = [
   { path: '', component: HomePageComponent},
@@ -57,7 +62,9 @@ const routes: Routes = [
     UpdatePostComponent,
     UpdateCommentComponent,
     PostDetailComponent,
-    FilterComponent
+    FilterComponent,
+    FilterCommentComponent
+    
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -65,7 +72,10 @@ const routes: Routes = [
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatPaginatorModule,
+    BrowserAnimationsModule
+
   ],
   exports: [RouterModule],
   providers: [],

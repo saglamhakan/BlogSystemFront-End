@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { CommentServiceService } from '../service/comment-service';
 import { UpdateCommentRequest } from '../model/UpdateCommentRequest';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-update-comment',
@@ -10,11 +12,14 @@ import { UpdateCommentRequest } from '../model/UpdateCommentRequest';
 })
 export class UpdateCommentComponent implements OnInit{
   updateCommentForm!: FormGroup
+  
 
   constructor(private formBuilder: FormBuilder, private commentService: CommentServiceService ){
     
   }
   ngOnInit(){
+
+
     this.updateCommentForm=this.formBuilder.group({
     commentId:0,
     postId:0,
@@ -36,4 +41,5 @@ this.commentService.updateComment(updateCommentRequest).subscribe(data=>{
   let response:any=data
 });
 }
+
 }
